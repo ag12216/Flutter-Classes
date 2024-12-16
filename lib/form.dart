@@ -21,7 +21,7 @@ class _ToDoFormState extends State<ToDoForm> {
   
 
   String title = "Enter the description.";
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,9 +104,9 @@ class _ToDoFormState extends State<ToDoForm> {
               ),
             )
             ]),
-          )
+          ),
 
-
+          Image.asset("assets/profile.png",height: 80,width: 80)
 
           // TextButton(
           //   style: TextButton.styleFrom(
@@ -177,13 +177,15 @@ class _ToDoFormState extends State<ToDoForm> {
     
     
     // Constructor data passing
-    // List<String> currentList = ["Hello","Welcome","To", "Flutter", "Classes"];
+    // List<String> currentList = ["Lalit","Shilpa","Divya", "Madhuri"];
     // Navigator.push(context, MaterialPageRoute(builder: (_) => ToDoList(list: currentList)));
 
     // Constructor data passing
     List<String> currentList = ["Hello","Welcome","To", "Flutter", "Classes"];
-  
+
     Navigator.of(context).pushNamed(Routes.toDoList,arguments: {'data': currentList});
+
+
   }
 
 }
