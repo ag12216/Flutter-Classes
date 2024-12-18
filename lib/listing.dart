@@ -36,6 +36,7 @@ class _ListingState extends State<Listing> {
       const Center(child: Text("No data"))
       :
       ListView.builder(
+        scrollDirection: Axis.vertical,
         itemCount: data.length,
         itemBuilder: (context, index){
           return Container(

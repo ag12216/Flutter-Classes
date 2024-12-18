@@ -41,6 +41,12 @@ class _ToDoListState extends State<ToDoList> {
   }
 
   @override
+  void dispose() {
+    
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scafoldKey,

@@ -108,7 +108,10 @@ class _ToDoFormState extends State<ToDoForm> {
             ]),
           ),
 
-          Image.asset("assets/profile.png",height: 80,width: 80),
+          Image.asset("images/profile.png",height: 80,width: 80,errorBuilder: (context, error, stackTrace){
+            return Container(height: 10, width: 10,color: Colors.red);
+          }),
+
           
           // TextButton(
           //   style: TextButton.styleFrom(
