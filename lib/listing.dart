@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:society/api_call.dart';
 import 'package:society/constants.dart';
+import 'package:society/model.dart';
 
 class Listing extends StatefulWidget {
   const Listing({super.key});
@@ -13,7 +14,7 @@ class Listing extends StatefulWidget {
 
 class _ListingState extends State<Listing> {
 
-  List<dynamic> data = [];
+  List<ToDoModel> data = [];
 
   @override
   void initState() {
@@ -45,7 +46,7 @@ class _ListingState extends State<Listing> {
 
               border: Border(bottom: BorderSide(color: Colors.grey.withOpacity(0.4)))
             ),
-            child: Text('${data[index]['userId']}. ${data[index]['title'] ?? ''}'));
+            child: Text('${data[index].id}. ${data[index].title ?? ''}'));
         }),
     );
   }

@@ -16,7 +16,7 @@ class Routes {
       case toDoList:
         return MaterialPageRoute(builder: (_) => ToDoList(list: (settings.arguments as Map)['data']));
       case formData:
-        return MaterialPageRoute(builder: (_) => const ToDoForm());
+        return MaterialPageRoute(builder: (_) => ToDoForm(delegate: (settings.arguments as Map)['instance']));
       case listing:
         return MaterialPageRoute(builder: (_) => const Listing());
       default:

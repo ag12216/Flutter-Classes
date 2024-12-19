@@ -31,7 +31,7 @@ class NavBar2 extends StatelessWidget {
 }
 
 
-AppBar NavBar(String title,BuildContext context, {GlobalKey<State<StatefulWidget>>? scafoldKey,bool isBackButton = false}){
+AppBar NavBar(String title,BuildContext context, {GlobalKey<State<StatefulWidget>>? scafoldKey,bool isBackButton = false, Function? onBackButtonClicked}){
   return AppBar(
         leading: const SizedBox.shrink(),
         leadingWidth: 0,
@@ -40,7 +40,13 @@ AppBar NavBar(String title,BuildContext context, {GlobalKey<State<StatefulWidget
           children: [
             isBackButton ?
             GestureDetector(
-              onTap: () => Navigator.of(context).pop(),
+              onTap: () {
+                Navigator.of(context).pop();
+                if(onBackButtonClicked != null){
+                  onBackButtonClicked();
+                }
+                
+              },
               child: const Icon(Icons.arrow_back)) : 
             GestureDetector(
               onTap: () => Scaffold.of(scafoldKey!.currentContext!).openDrawer(),

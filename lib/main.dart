@@ -5,7 +5,7 @@ import 'package:society/form.dart';
 import 'package:society/routes.dart';
 
 void main() {
-  runApp(const StyledToast(
+  runApp(StyledToast(
     locale: Locale('en', 'US'),
     child: MaterialApp(
       onGenerateRoute: Routes.onGenerateRoute,

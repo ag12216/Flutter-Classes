@@ -8,11 +8,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:society/api_call.dart';
 import 'package:society/constants.dart';
 import 'package:society/learn.dart';
+import 'package:society/protocol.dart';
 import 'package:society/routes.dart';
 import 'package:society/todolist.dart';
 
 class ToDoForm extends StatefulWidget {
-  const ToDoForm({super.key});
+  IBackTPage? delegate;
+  ToDoForm({super.key, this.delegate});
 
   @override
   State<ToDoForm> createState() => _ToDoFormState();
@@ -20,14 +22,16 @@ class ToDoForm extends StatefulWidget {
 
 class _ToDoFormState extends State<ToDoForm> {
   TextEditingController todoDescription = TextEditingController();
-  
 
   String title = "Enter the description.";
  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NavBar('Todo Form',context,isBackButton: true),
+      appBar: NavBar('Todo Form',context,isBackButton: true,onBackButtonClicked: (){
+        // print(todoDescription.text.trim());
+        widget.delegate?.backToPage(todoDescription.text.trim());
+      }),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
         child: Column(

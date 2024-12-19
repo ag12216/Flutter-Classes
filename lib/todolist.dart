@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:society/constants.dart';
+import 'package:society/protocol.dart';
 import 'package:society/routes.dart';
 
 class ToDoList extends StatefulWidget {
@@ -14,7 +15,7 @@ class ToDoList extends StatefulWidget {
   State<ToDoList> createState() => _ToDoListState();
 }
 
-class _ToDoListState extends State<ToDoList> {
+class _ToDoListState extends State<ToDoList> implements IBackTPage {
   List<Map<String, String>> toDoListData = [];
   GlobalKey scafoldKey = GlobalKey<ScaffoldState>();
 
@@ -74,7 +75,7 @@ class _ToDoListState extends State<ToDoList> {
           itemCount: widget.list.length,
           itemBuilder: (cxt,index){
             return GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed(Routes.formData),
+              onTap: () => Navigator.of(context).pushNamed(Routes.formData,arguments: {'instance': this}),
               child: SizedBox(
                 child: Container(
                   margin: const EdgeInsets.only(bottom: 3,left: 10,right: 10,top: 10),
@@ -88,6 +89,11 @@ class _ToDoListState extends State<ToDoList> {
           }),
       ),
     );
+  }
+  
+  @override
+  void backToPage(String value) {
+    print(value);
   }
 }
 
