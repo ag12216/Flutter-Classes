@@ -4,9 +4,12 @@ import 'package:society/pages/login/login_controller.dart';
 import 'package:society/pages/login/register_controller.dart';
 
 class Providers {
-  static var providers = [
+
+  static List<ChangeNotifierProvider> getProviders() {
+    return [
     ChangeNotifierProvider(create: (_) => LoginController()),
     ChangeNotifierProvider(create: (_) => RegisterController()),
   ];
-  
+  }
+
 }
