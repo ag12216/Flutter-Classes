@@ -1,14 +1,14 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:society/pages/login/login_controller.dart';
+import 'package:society/resources/sizes.dart';
 import 'package:society/resources/assets.dart';
 import 'package:society/resources/ccolors.dart';
-import 'package:society/resources/constant.dart';
-import 'package:society/resources/sizes.dart';
-import 'package:society/widgets/text_button.dart';
-import 'package:society/widgets/text_field.dart';
 import 'package:society/widgets/text_view.dart';
+import 'package:society/resources/constant.dart';
+import 'package:society/widgets/text_field.dart';
+import 'package:society/widgets/text_button.dart';
+import 'package:society/pages/login/login_controller.dart';
+
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -57,7 +57,7 @@ class _LoginViewState extends State<LoginView> {
                     SizedBox(height: DeviceHeight.s50),
                     TextView(title: viewModel.getMapValue('email', 'text'),fontSize: FontSizes.s16),
                     SizedBox(height: DeviceHeight.s5),
-                    AppTextField(controller: viewModel.emailController, hintText: viewModel.getMapValue('email', 'hint')),
+                    AppTextField(controller: viewModel.emailController, hintText: viewModel.getMapValue('email', 'hint'),errorText: viewModel.emailError),
                 
                     SizedBox(height: DeviceHeight.s20),
                 
@@ -65,25 +65,23 @@ class _LoginViewState extends State<LoginView> {
                     SizedBox(height: DeviceHeight.s5),
                     AppTextField(controller: viewModel.passwordController, hintText: viewModel.getMapValue('password', 'hint'),isPasswordField: !viewModel.isPasswordVisible,suffixIcon: GestureDetector(
                       onTap: () => viewModel.makePasswordVisible(),
-                      child: !viewModel.isPasswordVisible ? Image.asset(Assets.eyeOff,height: DeviceHeight.s20,width: DeviceWidth.s20):Icon(Icons.remove_red_eye))),
-
-
+                      child: !viewModel.isPasswordVisible ? Image.asset(Assets.eyeOff,height: DeviceHeight.s20,width: DeviceWidth.s20):Icon(Icons.remove_red_eye)),errorText: viewModel.passwordError),
+        
+        
                       SizedBox(height: DeviceHeight.s10),
                       TextView(title: viewModel.getValue('forgotPassword'),color: CColors.textGrey,fontSize: FontSizes.s14,textAlign: TextAlign.right,isUnderLine: true),
-
-                      SizedBox(height: DeviceHeight.s20),
-
+        
+                    SizedBox(height: DeviceHeight.s20),
+        
                     AppPrimaryButton(text: viewModel.getValue('login'),onPressed: () => viewModel.onButtonClicked(context)),
-
-                      // Row(mainAxisAlignment: MainAxisAlignment.center,children: [
-                      //   TextView(title: viewModel.getValue('noAccount'),color: CColors.textGrey,fontSize: FontSizes.s14,textAlign: TextAlign.right,fontWeight: FontWeight.w200),
-                      //   SizedBox(width: DeviceWidth.s3),
-                      //   TextView(title: viewModel.getValue('register'),color: CColors.primary,fontSize: FontSizes.s14,textAlign: TextAlign.right,fontWeight: FontWeight.w500),
-                      // ])
-                      SizedBox(height: DeviceHeight.s20),
-                      RichText(text: TextSpan(text: viewModel.getValue('noAccount'),style: TextStyle(color: CColors.black,fontFamily: poppins, fontSize: FontSizes.s14,fontWeight: FontWeight.w200),children: [
+        
+                    SizedBox(height: DeviceHeight.s20),
+                    GestureDetector(
+                      onTap: () => viewModel.navigateToRegister(context),
+                      child: RichText(text: TextSpan(text: viewModel.getValue('noAccount'),style: TextStyle(color: CColors.black,fontFamily: poppins, fontSize: FontSizes.s14,fontWeight: FontWeight.w200),children: [
                         TextSpan(text: ' ${viewModel.getValue('register')}',style: const TextStyle(color: CColors.primary,fontWeight: FontWeight.w500))
-                      ]),textAlign: TextAlign.center)
+                      ]),textAlign: TextAlign.center),
+                    )
                       
                 ]),
               ),

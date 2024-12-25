@@ -1,8 +1,9 @@
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class FontSizes {
 
+  static double s5 = 5.sp;
   static double s8 = 8.sp;
   static double s9 = 9.sp;
   static double s10 = 10.sp;
@@ -32,6 +33,8 @@ class FontSizes {
 
 class DeviceHeight {
 
+  static double s2 = 2.h;
+  static double s4 = 4.h;
   static double s5 = 5.h;
   static double s8 = 8.h;
   static double s9 = 9.h;

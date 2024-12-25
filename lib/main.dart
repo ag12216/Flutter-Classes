@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:society/navigation/providers_list.dart';
 import 'package:society/navigation/routes.dart';
-import 'package:society/pages/login/login_controller.dart';
 import 'package:society/pages/login/login_view.dart';
+import 'package:society/pages/login/login_controller.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:society/pages/login/register_controller.dart';
 
 void main() {
   runApp(MultiProvider(
     providers: [
     ChangeNotifierProvider(create: (_) => LoginController()..init()),
-    ChangeNotifierProvider(create: (_) => RegisterController()),
+    ChangeNotifierProvider(create: (_) => RegisterController()..init()),
   ],
     child: const Splash(),
   ));

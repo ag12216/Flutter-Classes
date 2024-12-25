@@ -12,5 +12,7 @@
     },  
     "forgotPassword": "Forgot Password ?",
     "noAccount": "Don't have an account?",
-    "register": "Register"
+    "register": "Register",
+    "emailError": "Please enter the email id !!",
+    "passwordError": "Please enter the password !!"
 }

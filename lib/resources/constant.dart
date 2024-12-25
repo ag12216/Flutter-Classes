@@ -5,6 +5,20 @@ import 'package:flutter/services.dart';
 
 const poppins = 'Poppins';
 
+const en = 'en';
+const mr = 'mr';
+
+String getLanguage(){
+  String selectedLanguage = en;
+  switch(selectedLanguage){
+    case en:
+      return en;
+    case mr:
+      return mr;
+    default:
+      return en;
+  }
+}
 
 Future<Map<String, dynamic>> loadJsonFromAssets(String pathWithFileName) async {
   var response = await rootBundle.loadString("assets/json/$pathWithFileName.json");
