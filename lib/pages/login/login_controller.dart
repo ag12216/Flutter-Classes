@@ -1,6 +1,12 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:society/navigation/routes.dart';
 import 'package:society/resources/constant.dart';
+import 'package:society/pages/services/urls.dart';
+import 'package:society/resources/validators.dart';
+import 'package:society/pages/services/api_client.dart';
+import 'package:society/pages/services/models/login_response.dart';
+
 
 
 class LoginController with ChangeNotifier{
@@ -37,11 +43,11 @@ class LoginController with ChangeNotifier{
     Navigator.of(context).pushNamed(Routes.register);
   }
 
-  void onButtonClicked(BuildContext context){
+  void onButtonClicked(BuildContext context) async{
     var email = emailController.text.trim();
     var password = passwordController.text.trim();
-    print('Email: $email, Password: $password'); 
-    if(email.isEmpty){
+
+    if(!emailValid(email)){
       emailError = loginJson['emailError'];
     }else{
       emailError = null;
@@ -63,7 +69,18 @@ class LoginController with ChangeNotifier{
     notifyListeners();
 
 
-    Navigator.of(context).pushNamed(Routes.register);
+    // ApiClient apiClient = ApiClient();
+    // apiClient.post(controller, params)
+    Map<String, dynamic> params = {
+      "email": email,
+      "password": password
+    };
+    var response = await ApiClient().post(Urls.login, params);
+    LoginResponse.fromJson(response);
+    
+    print(LoginResponse.shared.id);
+  
+    // Navigator.of(context).pushNamed(Routes.register);
 
     // if(email.isEmpty){
       
