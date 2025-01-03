@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:society/resources/sizes.dart';
-import 'package:society/resources/ccolors.dart';
-import 'package:society/widgets/text_view.dart';
-import 'package:society/resources/constant.dart';
+import 'package:society_hub/resources/sizes.dart';
+import 'package:society_hub/resources/ccolors.dart';
+import 'package:society_hub/widgets/text_view.dart';
+import 'package:society_hub/resources/constant.dart';
 
 
 class AppTextField extends StatelessWidget {
@@ -14,9 +14,10 @@ class AppTextField extends StatelessWidget {
   final Color? textColor;
   final bool? isPasswordField;
   final double? height;
+  final TextInputType? textInputype;
   final String? errorText;
 
-  const AppTextField({super.key, required this.controller, this.hintText, this.suffixIcon, this.fontSize, this.fontWeight, this.textColor, this.isPasswordField = false, this.height, this.errorText});
+  const AppTextField({super.key, required this.controller, this.hintText, this.suffixIcon, this.fontSize, this.fontWeight, this.textColor, this.isPasswordField = false, this.height, this.errorText, this.textInputype});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,7 @@ class AppTextField extends StatelessWidget {
             child: TextField(
                 controller: controller,
                 obscureText: isPasswordField ?? false,
+                keyboardType: textInputype ?? TextInputType.text,
                 decoration: InputDecoration(
                   hintText: hintText,
                   suffixIcon: suffixIcon,

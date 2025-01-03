@@ -1,11 +1,10 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:society/navigation/routes.dart';
-import 'package:society/resources/constant.dart';
-import 'package:society/pages/services/urls.dart';
-import 'package:society/resources/validators.dart';
-import 'package:society/pages/services/api_client.dart';
-import 'package:society/pages/services/models/login_response.dart';
+import 'package:society_hub/navigation/routes.dart';
+import 'package:society_hub/resources/constant.dart';
+import 'package:society_hub/pages/services/urls.dart';
+import 'package:society_hub/resources/validators.dart';
+import 'package:society_hub/pages/services/api_client.dart';
+import 'package:society_hub/pages/services/models/login_response.dart';
 
 
 
@@ -44,6 +43,8 @@ class LoginController with ChangeNotifier{
   }
 
   void onButtonClicked(BuildContext context) async{
+    Navigator.of(context).pushNamed(Routes.dashboard);
+    return;
     var email = emailController.text.trim();
     var password = passwordController.text.trim();
 
@@ -78,7 +79,7 @@ class LoginController with ChangeNotifier{
     var response = await ApiClient().post(Urls.login, params);
     LoginResponse.fromJson(response);
     
-    print(LoginResponse.shared.id);
+    // print(LoginResponse.shared.id);
   
     // Navigator.of(context).pushNamed(Routes.register);
 
@@ -88,6 +89,10 @@ class LoginController with ChangeNotifier{
     // notifyListeners();
     
     // api
+  }
+
+  void navigateToForgotPassword(BuildContext context){
+    Navigator.of(context).pushNamed(Routes.forgotPassword);
   }
 
 }

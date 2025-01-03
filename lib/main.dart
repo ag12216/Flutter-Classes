@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:society/navigation/routes.dart';
-import 'package:society/pages/login/login_view.dart';
-import 'package:society/pages/login/login_controller.dart';
+import 'package:society_hub/navigation/routes.dart';
+import 'package:society_hub/pages/login/forgot_password_controller.dart';
+import 'package:society_hub/pages/login/login_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:society/pages/login/register_controller.dart';
+import 'package:society_hub/pages/login/login_controller.dart';
+import 'package:society_hub/pages/login/register_controller.dart';
+import 'package:society_hub/pages/dashboard/dashboard_controller.dart';
+import 'package:society_hub/resources/constant.dart';
+import 'package:society_hub/resources/protocols.dart';
 
 void main() {
   runApp(MultiProvider(
     providers: [
+    ChangeNotifierProvider(create: (_) => BaseModel()),
     ChangeNotifierProvider(create: (_) => LoginController()..init()),
     ChangeNotifierProvider(create: (_) => RegisterController()..init()),
+    ChangeNotifierProvider(create: (_) => DashboardController()..init(dashboard)),
+    ChangeNotifierProvider(create: (_) => ForgotPasswordController()),
+    
   ],
     child: const Splash(),
   ));

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:society/resources/sizes.dart';
-import 'package:society/resources/assets.dart';
-import 'package:society/resources/ccolors.dart';
-import 'package:society/widgets/text_view.dart';
-import 'package:society/resources/constant.dart';
-import 'package:society/widgets/text_field.dart';
-import 'package:society/widgets/text_button.dart';
-import 'package:society/pages/login/login_controller.dart';
+import 'package:society_hub/resources/sizes.dart';
+import 'package:society_hub/resources/assets.dart';
+import 'package:society_hub/resources/ccolors.dart';
+import 'package:society_hub/widgets/text_view.dart';
+import 'package:society_hub/resources/constant.dart';
+import 'package:society_hub/widgets/text_field.dart';
+import 'package:society_hub/widgets/text_button.dart';
+import 'package:society_hub/pages/login/login_controller.dart';
 
 
 class LoginView extends StatefulWidget {
@@ -29,6 +30,7 @@ class _LoginViewState extends State<LoginView> {
             fit: StackFit.expand,
             children: [
             Image.asset(Assets.background),
+            
             Positioned(
               top: DeviceHeight.s30,
               child: ClipRRect(
@@ -65,11 +67,13 @@ class _LoginViewState extends State<LoginView> {
                     SizedBox(height: DeviceHeight.s5),
                     AppTextField(controller: viewModel.passwordController, hintText: viewModel.getMapValue('password', 'hint'),isPasswordField: !viewModel.isPasswordVisible,suffixIcon: GestureDetector(
                       onTap: () => viewModel.makePasswordVisible(),
-                      child: !viewModel.isPasswordVisible ? Image.asset(Assets.eyeOff,height: DeviceHeight.s20,width: DeviceWidth.s20):Icon(Icons.remove_red_eye)),errorText: viewModel.passwordError),
+                      child: !viewModel.isPasswordVisible ? Image.asset(Assets.eyeOff,height: DeviceHeight.s20,width: DeviceWidth.s20):const Icon(Icons.remove_red_eye)),errorText: viewModel.passwordError),
         
         
                       SizedBox(height: DeviceHeight.s10),
-                      TextView(title: viewModel.getValue('forgotPassword'),color: CColors.textGrey,fontSize: FontSizes.s14,textAlign: TextAlign.right,isUnderLine: true),
+                      GestureDetector(
+                        onTap: () => viewModel.navigateToForgotPassword(context),
+                        child: TextView(title: viewModel.getValue('forgotPassword'),color: CColors.textGrey,fontSize: FontSizes.s14,textAlign: TextAlign.right,isUnderLine: true)),
         
                     SizedBox(height: DeviceHeight.s20),
         

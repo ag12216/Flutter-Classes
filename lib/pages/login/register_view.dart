@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:society/resources/sizes.dart';
-import 'package:society/resources/ccolors.dart';
-import 'package:society/widgets/text_view.dart';
-import 'package:society/widgets/text_field.dart';
-import 'package:society/pages/login/register_controller.dart';
+import 'package:society_hub/resources/sizes.dart';
+import 'package:society_hub/widgets/text_view.dart';
+import 'package:society_hub/widgets/text_field.dart';
+import 'package:society_hub/pages/login/register_controller.dart';
 
 
 class RegisterView extends StatefulWidget {

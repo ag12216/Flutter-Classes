@@ -1,16 +1,16 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:society/pages/services/urls.dart';
+import 'package:society_hub/pages/services/urls.dart';
 
 
 
 class ApiClient {
 
   Future<dynamic> post(String controller, Map<String, dynamic> params) async{
-    String url = Urls.BASEURL + controller;
+    String url = Urls.bASEURL + controller;
     String body = jsonEncode(params);
-    print("URL: $url");
-    print("Body: $body");
+    // print("URL: $url");
+    // print("Body: $body");
     var headers = {  'Content-Type': 'application/json' };
     http.Response response = await http.post(Uri.parse(url),body: body,headers: headers);
     var result = jsonDecode(response.body);

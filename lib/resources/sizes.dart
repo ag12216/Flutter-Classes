@@ -63,6 +63,7 @@ class DeviceHeight {
   static double s50 = 50.h;
   static double s40 = 40.h;
   static double s80 = 80.h;
+  static double s100 = 100.h;
   static double s130 = 130.h;
   static double s150 = 150.h;
 }
@@ -97,7 +98,10 @@ class DeviceWidth {
   static double s30 = 30.w;
 
   static double s40 = 40.w;
+  static double s50 = 50.w;
+  static double s60 = 60.w;
   static double s80 = 80.w;
+  static double s100 = 100.w;
   static double s130 = 130.w;
   static double s150 = 150.w;
   
@@ -105,5 +109,9 @@ class DeviceWidth {
 }
 
 class DeviceRadius {
+  static double s10 = 10.r;
   static double s40 = 40.r;
+  static double s50 = 50.r;
+  static double s60 = 60.r;
+  static double s100 = 100.r;
 }

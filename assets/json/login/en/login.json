@@ -1,18 +1,18 @@
 {
-    "login": "Login",
-    "fields": {
-        "email": {
-            "text": "E-mail",
-            "hint": "Enter your email"
-        },
-        "password": {
-            "text": "Password",
-            "hint": "Enter your password"
-        }
-    },  
-    "forgotPassword": "Forgot Password ?",
-    "noAccount": "Don't have an account?",
-    "register": "Register",
-    "emailError": "Please enter the email id !!",
-    "passwordError": "Please enter the password !!"
+  "login": "Login",
+  "fields": {
+      "email": {
+          "text": "E-mail",
+          "hint": "Enter your email"
+      },
+      "password": {
+          "text": "Password",
+          "hint": "Enter your password"
+      }
+  },  
+  "forgotPassword": "Forgot Password ?",
+  "noAccount": "Don't have an account?",
+  "register": "Register",
+  "emailError": "Please enter the email id !!",
+  "passwordError": "Please enter the password !!"
 }

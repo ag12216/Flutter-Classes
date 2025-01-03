@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
-import 'package:society/resources/ccolors.dart';
-import 'package:society/widgets/text_view.dart';
+import 'package:society_hub/resources/ccolors.dart';
+import 'package:society_hub/widgets/text_view.dart';
+
 
 class AppPrimaryButton extends StatelessWidget {
   final String? text;

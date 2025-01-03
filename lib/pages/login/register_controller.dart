@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:society/resources/constant.dart';
+import 'package:society_hub/resources/constant.dart';
 
 
 class RegisterController with ChangeNotifier{

@@ -7,4 +7,5 @@ class CColors {
   static const white = Color.fromRGBO(255, 255, 255, 1);
   static const textGrey = Color.fromRGBO(135, 135, 135, 1);
   static const red = Color.fromRGBO(208, 0, 0, 1);
+  static const mySociety = Color.fromRGBO(255, 245, 239, 1);
 }
