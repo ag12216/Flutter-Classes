@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:society_hub/pages/dashboard/dashboard_controller.dart';
 import 'package:society_hub/pages/dashboard/dashboard_view.dart';
 import 'package:society_hub/pages/login/login_view.dart';
 import 'package:society_hub/pages/login/otp_verification.dart';
@@ -25,6 +27,8 @@ class Routes {
             return MaterialPageRoute(builder: (_) => const OtpVerification());
           
           case dashboard:
+            DashboardController ctrl = Provider.of<DashboardController>((settings.arguments as Map)['context'], listen: false);
+            ctrl.init(dashboard);
             return MaterialPageRoute(builder: (_) => const DashboardView());
 
           default:

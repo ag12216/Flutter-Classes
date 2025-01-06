@@ -68,6 +68,7 @@ flutter:
   assets:
     - assets/
     - assets/login/
+    - assets/dashboard/
     - assets/json/login/en/
     - assets/json/login/hi/
     - assets/json/login/mr/

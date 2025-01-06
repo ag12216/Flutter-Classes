@@ -8,4 +8,9 @@ class CColors {
   static const textGrey = Color.fromRGBO(135, 135, 135, 1);
   static const red = Color.fromRGBO(208, 0, 0, 1);
   static const mySociety = Color.fromRGBO(255, 245, 239, 1);
+  static const commitee = Color.fromRGBO(228, 243, 231, 1);
+  static const myvisitors = Color.fromRGBO(240, 243, 255, 1);
+  static const events = Color.fromRGBO(244, 235, 255, 1);
+  static const complaints = Color.fromRGBO(255, 247, 232, 1);
+  static const maintenance = Color.fromRGBO(255, 242, 242, 1);
 }

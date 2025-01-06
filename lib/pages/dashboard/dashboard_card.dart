@@ -17,12 +17,12 @@ class DashboardCard extends StatelessWidget {
     padding: EdgeInsets.symmetric(vertical: DeviceHeight.s10, horizontal: DeviceWidth.s20),
     margin: EdgeInsets.only(right: 10),
     decoration: BoxDecoration(
-      color: CColors.mySociety,
+      color: color,
       borderRadius: BorderRadius.circular(DeviceRadius.s10),
       boxShadow: [
         BoxShadow(
-          color: CColors.textGrey.withOpacity(0.5),
-          spreadRadius: 5,
+          color: CColors.textGrey.withOpacity(0.3),
+          spreadRadius: 2,
           blurRadius: 4,
           offset: Offset(0.5, 1.0)
         )
@@ -32,11 +32,11 @@ class DashboardCard extends StatelessWidget {
       Container(
         padding: EdgeInsets.all(DeviceRadius.s10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(DeviceRadius.s60)
+          borderRadius: BorderRadius.circular(DeviceRadius.s40)
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(DeviceRadius.s60),
-          child: Image.asset(Assets.logo, height: DeviceHeight.s80,width: DeviceWidth.s80,fit: BoxFit.cover))),
+          borderRadius: BorderRadius.circular(DeviceRadius.s40),
+          child: Image.asset(image ?? Assets.logo, height: DeviceHeight.s60,width: DeviceWidth.s60,fit: BoxFit.contain))),
       TextView(title: title,fontWeight: FontWeight.w400,textAlign: TextAlign.center),
     ]),
   );

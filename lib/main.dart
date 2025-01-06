@@ -16,7 +16,7 @@ void main() {
     ChangeNotifierProvider(create: (_) => BaseModel()),
     ChangeNotifierProvider(create: (_) => LoginController()..init()),
     ChangeNotifierProvider(create: (_) => RegisterController()..init()),
-    ChangeNotifierProvider(create: (_) => DashboardController()..init(dashboard)),
+    ChangeNotifierProvider(create: (_) => DashboardController()),
     ChangeNotifierProvider(create: (_) => ForgotPasswordController()),
     
   ],

@@ -16,8 +16,11 @@ class AppTextField extends StatelessWidget {
   final double? height;
   final TextInputType? textInputype;
   final String? errorText;
+  final double? borderRadius;
+  final Widget? prefixIcon;
+  final TextAlign? textAlign;
 
-  const AppTextField({super.key, required this.controller, this.hintText, this.suffixIcon, this.fontSize, this.fontWeight, this.textColor, this.isPasswordField = false, this.height, this.errorText, this.textInputype});
+  const AppTextField({super.key, required this.controller, this.hintText, this.suffixIcon, this.fontSize, this.fontWeight, this.textColor, this.isPasswordField = false, this.height, this.errorText, this.textInputype, this.borderRadius, this.prefixIcon, this.textAlign});
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +35,17 @@ class AppTextField extends StatelessWidget {
                 controller: controller,
                 obscureText: isPasswordField ?? false,
                 keyboardType: textInputype ?? TextInputType.text,
+                textAlign: textAlign ?? TextAlign.left,
                 decoration: InputDecoration(
+                  prefixIcon: prefixIcon,
                   hintText: hintText,
                   suffixIcon: suffixIcon,
                   labelStyle: TextStyle(fontFamily: poppins, fontSize: fontSize ?? FontSizes.s16, fontWeight: fontWeight ?? FontWeight.w300,color: textColor ?? CColors.black),
-                
-                  hintStyle: TextStyle(fontFamily: poppins, fontSize: FontSizes.s13, fontWeight: FontWeight.w300,color: CColors.black.withOpacity(0.3)),
-                  focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5),borderSide: BorderSide(color: Colors.grey.
+                  hintStyle: TextStyle(fontFamily: poppins,fontSize: FontSizes.s13, fontWeight: FontWeight.w300,color: CColors.black.withOpacity(0.3)),
+                  focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(borderRadius ?? 5),borderSide: BorderSide(color: Colors.grey.
                   withOpacity(0.5))),
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(5),borderSide: BorderSide(color: Colors.grey.withOpacity(0.5))),
-                  enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5),borderSide: BorderSide(color: Colors.grey.withOpacity(0.5))),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(borderRadius ?? 5),borderSide: BorderSide(color: Colors.grey.withOpacity(0.5))),
+                  enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(borderRadius ?? 5),borderSide: BorderSide(color: Colors.grey.withOpacity(0.5))),
                 ),
               ),
           ),
