@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:society_hub/common_widgets/custom_drawer.dart';
 import 'package:society_hub/common_widgets/nav_bar.dart';
 import 'package:society_hub/pages/dashboard/dashboard_card.dart';
 import 'package:society_hub/pages/dashboard/dashboard_controller.dart';
@@ -21,8 +22,8 @@ class _DashboardViewState extends State<DashboardView> {
   @override
   Widget build(BuildContext context) {
     return Consumer<DashboardController>(builder: (_, viewModel, child) => Scaffold(
-      appBar: PreferredSize(preferredSize: Size.fromHeight(200), child: NavBar()),
-      
+      appBar: PreferredSize(preferredSize: const Size.fromHeight(200), child: NavBar()),
+      drawer: const CustomDrawer(),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: DeviceWidth.s10),

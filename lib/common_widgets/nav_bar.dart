@@ -35,9 +35,12 @@ class NavBar extends StatelessWidget {
           children: [
             SizedBox(height: DeviceHeight.s5),
             Row(children: [
-              Padding(
-                padding: EdgeInsets.only(left: DeviceWidth.s15),
-                child: Icon(Icons.menu,size: DeviceHeight.s30),
+              GestureDetector(
+                onTap: () => Scaffold.of(context).openDrawer(),
+                child: Padding(
+                  padding: EdgeInsets.only(left: DeviceWidth.s15),
+                  child: Icon(Icons.menu,size: DeviceHeight.s30),
+                ),
               ),
               Expanded(
                 child: Column(mainAxisSize: MainAxisSize.min,crossAxisAlignment: CrossAxisAlignment.stretch,children: [

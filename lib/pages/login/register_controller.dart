@@ -3,7 +3,7 @@ import 'package:society_hub/resources/constant.dart';
 
 
 class RegisterController with ChangeNotifier{
-  
+final formKey = GlobalKey<FormState>();
   Map<String, dynamic> registerJson = {};
 
   final TextEditingController firstNameController = TextEditingController();

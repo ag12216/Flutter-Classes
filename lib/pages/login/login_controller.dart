@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:society_hub/navigation/routes.dart';
+import 'package:society_hub/resources/ccolors.dart';
 import 'package:society_hub/resources/constant.dart';
-import 'package:society_hub/pages/services/urls.dart';
 import 'package:society_hub/resources/validators.dart';
-import 'package:society_hub/pages/services/api_client.dart';
 import 'package:society_hub/pages/services/models/login_response.dart';
+import 'package:society_hub/services/api_client.dart';
+import 'package:society_hub/services/urls.dart';
+import 'package:society_hub/widgets/text_view.dart';
 
 
 
@@ -17,8 +19,8 @@ class LoginController with ChangeNotifier{
   String? title = "Login";
   bool isPasswordVisible = false;
   
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController(text: 'iron@man.com');
+  final TextEditingController passwordController = TextEditingController(text: 'password');
 
   void init() async{
     loginJson = await loadJsonFromAssets("login/${getLanguage()}/login");
@@ -43,8 +45,8 @@ class LoginController with ChangeNotifier{
   }
 
   void onButtonClicked(BuildContext context) async{
-    Navigator.of(context).pushNamed(Routes.dashboard, arguments: {'context': context});
-    return;
+    // Navigator.of(context).pushNamed(Routes.others, arguments: {'context': context});
+    // return;
     var email = emailController.text.trim();
     var password = passwordController.text.trim();
 
@@ -69,24 +71,20 @@ class LoginController with ChangeNotifier{
     passwordError = null;
     notifyListeners();
 
-
-    // ApiClient apiClient = ApiClient();
-    // apiClient.post(controller, params)
     Map<String, dynamic> params = {
-      "email": email,
-      "password": password
+      'email': emailController.text.trim(),
+      'password': passwordController.text.trim()
     };
-    var response = await ApiClient().post(Urls.login, params);
-    LoginResponse.fromJson(response);
-    
-    // print(LoginResponse.shared.id);
-  
-    // Navigator.of(context).pushNamed(Routes.register);
 
-    // if(email.isEmpty){
-      
-    // }
-    // notifyListeners();
+    ApiClient apiClient = ApiClient();
+    Map<String, dynamic>? response =  await apiClient.post(Urls.login, params);
+    if(response != null){
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(backgroundColor: Colors.green,content: TextView(title: "Login Success",textAlign: TextAlign.center,color: Colors.white)));
+      Navigator.of(context).pushReplacementNamed(Routes.dashboard, arguments: {'context': context});
+    }else{
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(backgroundColor: Colors.red,content: TextView(title: "Login Failed",textAlign: TextAlign.center,color: Colors.white)));
+    }
+
     
     // api
   }
