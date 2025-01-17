@@ -19,8 +19,8 @@ class LoginController with ChangeNotifier{
   String? title = "Login";
   bool isPasswordVisible = false;
   
-  final TextEditingController emailController = TextEditingController(text: 'iron@man.com');
-  final TextEditingController passwordController = TextEditingController(text: 'password');
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   void init() async{
     loginJson = await loadJsonFromAssets("login/${getLanguage()}/login");
@@ -45,8 +45,8 @@ class LoginController with ChangeNotifier{
   }
 
   void onButtonClicked(BuildContext context) async{
-    // Navigator.of(context).pushNamed(Routes.others, arguments: {'context': context});
-    // return;
+    Navigator.of(context).pushNamed(Routes.wing, arguments: {'context': context});
+    return;
     var email = emailController.text.trim();
     var password = passwordController.text.trim();
 
