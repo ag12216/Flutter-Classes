@@ -9,7 +9,8 @@ const en = 'en';
 const mr = 'mr';
 const hi = 'hi';
 
-const dashboard = 'dashboard';
+const dashboardJson = 'dashboard';
+const visitorJson = 'visitor';
 
 String getLanguage(){
   String selectedLanguage = en;

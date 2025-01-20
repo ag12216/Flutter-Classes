@@ -45,7 +45,7 @@ class LoginController with ChangeNotifier{
   }
 
   void onButtonClicked(BuildContext context) async{
-    Navigator.of(context).pushNamed(Routes.wing, arguments: {'context': context});
+    Navigator.of(context).pushNamed(Routes.learn, arguments: {'context': context});
     return;
     var email = emailController.text.trim();
     var password = passwordController.text.trim();

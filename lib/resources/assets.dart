@@ -14,4 +14,7 @@ class Assets {
     static const mysociety  = 'assets/dashboard/mysociety.png';
     static const notification  = 'assets/dashboard/notification.png';
     static const visitors  = 'assets/dashboard/visitors.png';
+
+    // Visitors
+    static const visitorProfile = 'assets/visitors/visitor.png';
 }

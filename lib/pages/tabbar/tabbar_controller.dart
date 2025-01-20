@@ -7,6 +7,7 @@ class TabbarController with ChangeNotifier {
 
   void initializeTabController(TickerProvider reference){
     tabController = TabController(length: list.length, vsync: reference);
+  // list.asMap().map((key, value) => MapEntry(key, "value")).values.toList();
     tabController?.addListener((){
       notifyListeners();
     });

@@ -10,6 +10,9 @@ import 'package:society_hub/pages/others/learn_view.dart';
 import 'package:society_hub/pages/others/others.dart';
 import 'package:society_hub/pages/page_not_found/page_not_found.dart';
 import 'package:society_hub/pages/tabbar/tabbar_view.dart';
+import 'package:society_hub/pages/visitors/visitor_controller.dart';
+import 'package:society_hub/pages/visitors/visitorpage.dart';
+import 'package:society_hub/resources/constant.dart';
 
 
 
@@ -22,6 +25,7 @@ class Routes {
     static const learn = '/learn';
     static const wing = '/wing';
     static const fields = '/fields';
+    static const visitor = '/visitor';
 
     static Route<dynamic> onGenerateRoute(RouteSettings settings){
         switch(settings.name){
@@ -36,9 +40,14 @@ class Routes {
           
           case dashboard:
             DashboardController ctrl = Provider.of<DashboardController>((settings.arguments as Map)['context'], listen: false);
-            ctrl.init(dashboard);
+            ctrl.init(dashboardJson);
             return MaterialPageRoute(builder: (_) => const DashboardView());
           
+          case visitor:
+            VisitorController ctrl = Provider.of<VisitorController>((settings.arguments as Map)['context'], listen: false);
+            ctrl.init(visitorJson);
+            return MaterialPageRoute(builder: (_) => const VisitorPage());
+
           case wing:
             return MaterialPageRoute(builder: (_) => const WingPage());
 

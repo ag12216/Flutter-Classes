@@ -8,6 +8,7 @@ import 'package:society_hub/pages/others/fields_controller.dart';
 import 'package:society_hub/pages/others/learn_controller.dart';
 import 'package:society_hub/pages/others/other_controller.dart';
 import 'package:society_hub/pages/tabbar/tabbar_controller.dart';
+import 'package:society_hub/pages/visitors/visitor_controller.dart';
 import 'package:society_hub/resources/protocols.dart';
 
 
@@ -23,6 +24,7 @@ class Providers {
     ChangeNotifierProvider(create: (_) => LearnController()),
     ChangeNotifierProvider(create: (_) => FieldsController()),
     ChangeNotifierProvider(create: (_) => TabbarController()),
+    ChangeNotifierProvider(create: (_) => VisitorController()),
     
     
     

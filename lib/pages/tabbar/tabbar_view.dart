@@ -1,10 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:society_hub/common_widgets/nav_bar.dart';
+import 'package:society_hub/pages/tabbar/flat_detail.dart';
 import 'package:society_hub/pages/tabbar/flat_user.dart';
 import 'package:society_hub/pages/tabbar/tab_header.dart';
 import 'package:society_hub/pages/tabbar/tabbar_controller.dart';
-import 'package:society_hub/resources/assets.dart';
+import 'package:society_hub/resources/ccolors.dart';
 import 'package:society_hub/resources/sizes.dart';
 import 'package:society_hub/widgets/text_view.dart';
 
@@ -30,6 +32,7 @@ class WingPageState extends State<WingPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Consumer<TabbarController>(builder: (_, viewModel, child) => Scaffold(
+      appBar: PreferredSize(preferredSize: Size.fromHeight(180), child: NavBar()),
       body: SafeArea(
         child: DefaultTabController(length: viewModel.list.length, child: Scaffold(
           appBar: TabBar(
@@ -48,25 +51,12 @@ class WingPageState extends State<WingPage> with TickerProviderStateMixin {
             padding: EdgeInsets.only(top: DeviceHeight.s10),
             child: TabBarView(
               controller: viewModel.tabController,
-              children: [
-              Container(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 2,
-                  itemBuilder: (_, index){
-                    return const FlatUser(name: 'Jarvis',userType: 'Owner');
-                  }),
-              ),
-              Container(
-                color: Colors.green,
-              ),
-              Container(
-                color: Colors.blue,
-              ),
-              Container(
-                color: Colors.yellow,
-              )
-            ]),
+              children: viewModel.list.map((e) => ListView.builder(
+                shrinkWrap: true,
+                itemCount: 10,
+                itemBuilder: (_, index){
+                return FlatDetail(title: e);
+              })).toList()),
           ),
         
         )),

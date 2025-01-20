@@ -5,10 +5,11 @@ import 'package:society_hub/resources/sizes.dart';
 import 'package:society_hub/widgets/text_view.dart';
 
 class FlatUser extends StatelessWidget {
+  bool isLastIndex = false;
   final String? profileImage;
   final String? name;
   final String? userType;
-  const FlatUser({super.key, this.profileImage, this.name, this.userType});
+  FlatUser({super.key, this.profileImage, this.name, this.userType, this.isLastIndex= false});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,8 @@ class FlatUser extends StatelessWidget {
       padding: EdgeInsets.all(DeviceHeight.s8),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border(bottom: BorderSide(color: Colors.black.withValues(alpha: 0.2)))
+        border: Border(bottom: BorderSide(color: Colors.black.withValues(alpha: 0.2))),
+        borderRadius: isLastIndex ? BorderRadius.only(bottomLeft: Radius.circular(DeviceRadius.s20), bottomRight: Radius.circular(DeviceRadius.s20)) : null
       ),
       child: Row(  
         crossAxisAlignment: CrossAxisAlignment.center,

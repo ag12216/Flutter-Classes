@@ -69,10 +69,12 @@ flutter:
     - assets/
     - assets/login/
     - assets/dashboard/
+    - assets/visitors/
     - assets/json/login/en/
     - assets/json/login/hi/
     - assets/json/login/mr/
     - assets/json/dashboard/
+    - assets/json/visitor/en/
     
   #   - images/a_dot_ham.jpeg
 
