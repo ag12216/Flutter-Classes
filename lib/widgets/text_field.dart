@@ -19,8 +19,9 @@ class AppTextField extends StatelessWidget {
   final double? borderRadius;
   final Widget? prefixIcon;
   final TextAlign? textAlign;
+  final Function? onSubmitted;
 
-  const AppTextField({super.key, required this.controller, this.hintText, this.suffixIcon, this.fontSize, this.fontWeight, this.textColor, this.isPasswordField = false, this.height, this.errorText, this.textInputype, this.borderRadius, this.prefixIcon, this.textAlign});
+  const AppTextField({super.key, required this.controller, this.hintText, this.suffixIcon, this.fontSize, this.fontWeight, this.textColor, this.isPasswordField = false, this.height, this.errorText, this.textInputype, this.borderRadius, this.prefixIcon, this.onSubmitted,this.textAlign});
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +37,7 @@ class AppTextField extends StatelessWidget {
                 obscureText: isPasswordField ?? false,
                 keyboardType: textInputype ?? TextInputType.text,
                 textAlign: textAlign ?? TextAlign.left,
+                onSubmitted: (value) => onSubmitted != null ? onSubmitted!() : {},
                 decoration: InputDecoration(
                   prefixIcon: prefixIcon,
                   hintText: hintText,

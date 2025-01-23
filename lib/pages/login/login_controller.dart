@@ -1,11 +1,16 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:society_hub/navigation/routes.dart';
 import 'package:society_hub/resources/ccolors.dart';
 import 'package:society_hub/resources/constant.dart';
 import 'package:society_hub/resources/validators.dart';
 import 'package:society_hub/pages/services/models/login_response.dart';
-import 'package:society_hub/services/api_client.dart';
-import 'package:society_hub/services/urls.dart';
+import 'package:society_hub/response/login_response.dart';
+import 'package:society_hub/services/services.dart';
+import 'package:society_hub/services_v2/api_client.dart';
+import 'package:society_hub/services_v2/urls.dart';
 import 'package:society_hub/widgets/text_view.dart';
 
 
@@ -15,12 +20,13 @@ class LoginController with ChangeNotifier{
   Map<String, dynamic> loginJson = {};
   String? emailError;
   String? passwordError;
+  LoginResponse2Response? loginResponse2Response;
 
   String? title = "Login";
   bool isPasswordVisible = false;
   
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController(text: 'iron@man.com');
+  final TextEditingController passwordController = TextEditingController(text: 'password1');
 
   void init() async{
     loginJson = await loadJsonFromAssets("login/${getLanguage()}/login");
@@ -44,8 +50,33 @@ class LoginController with ChangeNotifier{
     Navigator.of(context).pushNamed(Routes.register);
   }
 
+
+  void didTapLoginButton(BuildContext context) async {
+    Services services = Services();
+    Map<String, dynamic> body = {
+      'email': emailController.text.trim(),
+      'password': passwordController.text.trim()
+    };
+    ResultResponse resultResponse = await services.postMethod(Urls.login, body);
+    if(resultResponse.status == 0){
+      // loginResponse2Response = LoginResponse2Response.fromJson(json)
+      LoginResponse2Response.fromJson(resultResponse.data);
+      log(LoginResponse2Response.shared.firstName.toString());
+    }else if(resultResponse.status == 1){
+      // toast notif
+    }else{
+      // catch error
+      (resultResponse.data as Map)['message'];
+      // toast notif
+    }
+  }
+
+
+
+
+
   void onButtonClicked(BuildContext context) async{
-    Navigator.of(context).pushNamed(Routes.learn, arguments: {'context': context});
+    Navigator.of(context).pushNamed(Routes.visitor, arguments: {'context': context});
     return;
     var email = emailController.text.trim();
     var password = passwordController.text.trim();

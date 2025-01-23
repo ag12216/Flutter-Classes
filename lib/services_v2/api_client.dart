@@ -1,7 +1,7 @@
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:society_hub/services/urls.dart';
+import 'package:society_hub/services_v2/urls.dart';
 
 class ApiClient {
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:society_hub/common_widgets/nav_bar.dart';
 import 'package:society_hub/resources/sizes.dart';
 import 'package:society_hub/resources/assets.dart';
 import 'package:society_hub/resources/ccolors.dart';
@@ -77,7 +78,7 @@ class _LoginViewState extends State<LoginView> {
         
                     SizedBox(height: DeviceHeight.s20),
         
-                    AppPrimaryButton(text: viewModel.getValue('login'),onPressed: () => viewModel.onButtonClicked(context)),
+                    AppPrimaryButton(text: viewModel.getValue('login'),onPressed: () => viewModel.didTapLoginButton(context)),
         
                     SizedBox(height: DeviceHeight.s20),
                     GestureDetector(

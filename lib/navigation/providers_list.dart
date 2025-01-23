@@ -1,5 +1,6 @@
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:society_hub/common_widgets/nav_controller.dart';
 import 'package:society_hub/pages/dashboard/dashboard_controller.dart';
 import 'package:society_hub/pages/login/forgot_password_controller.dart';
 import 'package:society_hub/pages/login/login_controller.dart';
@@ -15,6 +16,7 @@ import 'package:society_hub/resources/protocols.dart';
 class Providers {
 
   static List<SingleChildWidget> providerList = [
+    ChangeNotifierProvider(create: (_) => NavController()),
     ChangeNotifierProvider(create: (_) => BaseModel()),
     ChangeNotifierProvider(create: (_) => LoginController()..init()),
     ChangeNotifierProvider(create: (_) => RegisterController()..init()),

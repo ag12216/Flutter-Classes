@@ -34,6 +34,7 @@ class FontSizes {
 class DeviceHeight {
 
   static double s2 = 2.h;
+  static double s3 = 3.h;
   static double s4 = 4.h;
   static double s5 = 5.h;
   static double s8 = 8.h;
@@ -66,6 +67,7 @@ class DeviceHeight {
   static double s70 = 70.h;
   static double s80 = 80.h;
   static double s100 = 100.h;
+  static double s120 = 120.h;
   static double s130 = 130.h;
   static double s150 = 150.h;
 }
@@ -112,6 +114,8 @@ class DeviceWidth {
 }
 
 class DeviceRadius {
+  static double s5 = 5.r;
+  static double s8 = 8.r; 
   static double s10 = 10.r;
   static double s20 = 20.r;
   static double s30 = 30.r;

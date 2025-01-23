@@ -10,13 +10,18 @@ class AppPrimaryButton extends StatelessWidget {
   final double? textSize;
   final FontWeight? fontWeight;
   final Function? onPressed; // CallBack functions
-  const AppPrimaryButton({super.key, this.text, this.buttonColor, this.textColor, this.textSize, this.fontWeight, this.onPressed});
+  final double? height;
+  final Color? borderColor;
+  const AppPrimaryButton({super.key, this.text, this.buttonColor, this.textColor, this.height, this.textSize, this.fontWeight,this.borderColor, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => onPressed == null ? {}: onPressed!(), 
-      style: TextButton.styleFrom(backgroundColor: buttonColor ?? CColors.primary),
-      child: TextView(title: text ?? '',color: textColor ?? CColors.white,fontSize: textSize,fontWeight: fontWeight ?? FontWeight.w500));
+    return SizedBox(
+      height: height,
+      child: TextButton(
+        onPressed: () => onPressed == null ? {}: onPressed!(), 
+        style: TextButton.styleFrom(backgroundColor: buttonColor ?? CColors.primary,side: BorderSide(color: borderColor ?? Colors.transparent)),
+        child: TextView(title: text ?? '',color: textColor ?? CColors.white,fontSize: textSize,fontWeight: fontWeight ?? FontWeight.w500)),
+    );
   }
 }
