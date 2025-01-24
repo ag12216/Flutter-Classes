@@ -26,7 +26,7 @@ class LoginController with ChangeNotifier{
   bool isPasswordVisible = false;
   
   final TextEditingController emailController = TextEditingController(text: 'iron@man.com');
-  final TextEditingController passwordController = TextEditingController(text: 'password1');
+  final TextEditingController passwordController = TextEditingController(text: 'password');
 
   void init() async{
     loginJson = await loadJsonFromAssets("login/${getLanguage()}/login");
@@ -61,7 +61,7 @@ class LoginController with ChangeNotifier{
     if(resultResponse.status == 0){
       // loginResponse2Response = LoginResponse2Response.fromJson(json)
       LoginResponse2Response.fromJson(resultResponse.data);
-      log(LoginResponse2Response.shared.firstName.toString());
+      Navigator.of(context).pushNamed(Routes.visitor, arguments: {'context': context});
     }else if(resultResponse.status == 1){
       // toast notif
     }else{

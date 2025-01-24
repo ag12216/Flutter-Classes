@@ -1,5 +1,6 @@
 
 import 'dart:convert';
+import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:society_hub/services_v2/urls.dart';
 
@@ -36,6 +37,7 @@ class Services {
         'Content-Type': 'application/json'
       };
       String? body = jsonEncode(params);
+      log('$path\n$body');
       http.Response response =  await http.post(Uri.parse(path),headers: headers, body: body);
       var responseBody = jsonDecode(response.body);
       if(response.statusCode >= 200 && response.statusCode <= 299){

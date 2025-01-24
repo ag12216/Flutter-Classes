@@ -1,13 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:society_hub/pages/visitors/label_value.dart';
+import 'package:society_hub/pages/visitors/visitor_controller.dart';
 import 'package:society_hub/resources/assets.dart';
 import 'package:society_hub/resources/ccolors.dart';
 import 'package:society_hub/resources/sizes.dart';
 import 'package:society_hub/widgets/text_button.dart';
 
 class VisitorRequestCard extends StatelessWidget {
-  const VisitorRequestCard({super.key});
+  VisitorController? viewModel;
+  VisitorRequestCard({super.key, this.viewModel});
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +58,7 @@ class VisitorRequestCard extends StatelessWidget {
                       ),
                       child: AppPrimaryButton(
                         text: 'Approve',
+                        onPressed: () => viewModel?.openBottomSheet(context),
                         height: DeviceHeight.s30,
                         buttonColor: Colors.transparent,
                         fontWeight: FontWeight.w400,

@@ -6,11 +6,9 @@ import 'package:society_hub/pages/visitors/past_card.dart';
 import 'package:society_hub/pages/visitors/reuest_card.dart';
 import 'package:society_hub/pages/visitors/visitor_controller.dart';
 import 'package:society_hub/pages/visitors/visitor_request_card.dart';
-import 'package:society_hub/resources/assets.dart';
 import 'package:society_hub/resources/ccolors.dart';
 import 'package:society_hub/resources/sizes.dart';
 import 'package:society_hub/widgets/text_button.dart';
-import 'package:society_hub/widgets/text_view.dart';
 
 class VisitorPage extends StatefulWidget {
   const VisitorPage({super.key});
@@ -32,7 +30,7 @@ class _VisitorPageState extends State<VisitorPage> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const VisitorRequestCard(),
+                VisitorRequestCard(viewModel: viewModel),
                 SizedBox(height: DeviceHeight.s10),
             
                 Container(

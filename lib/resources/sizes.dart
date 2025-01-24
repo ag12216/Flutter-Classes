@@ -107,6 +107,7 @@ class DeviceWidth {
   static double s70 = 70.w;
   static double s80 = 80.w;
   static double s100 = 100.w;
+  static double s120 = 120.w;
   static double s130 = 130.w;
   static double s150 = 150.w;
   
