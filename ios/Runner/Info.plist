@@ -50,5 +50,11 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<string>YES</string>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(EXECUTABLE_NAME) app wants to access gallery</string>
+	<key>NSCameraUsageDescription</key>
+	<string>$(EXECUTABLE_NAME) app wants to access camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(EXECUTABLE_NAME) app wants to access microphone</string>
 </dict>
 </plist>

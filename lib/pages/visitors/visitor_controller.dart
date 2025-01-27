@@ -1,19 +1,22 @@
 
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:society_hub/pages/visitors/labelTextField.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:society_hub/pages/visitors/profile_bottom_sheet.dart';
-import 'package:society_hub/resources/assets.dart';
 import 'package:society_hub/resources/ccolors.dart';
+import 'package:society_hub/resources/constant.dart';
 import 'package:society_hub/resources/protocols.dart';
 import 'package:society_hub/resources/sizes.dart';
 import 'package:society_hub/response/login_response.dart';
-import 'package:society_hub/widgets/text_button.dart';
-import 'package:society_hub/widgets/text_field.dart';
 import 'package:society_hub/widgets/text_view.dart';
 
 class VisitorController extends BaseModel {
   List<String> requests = ['Upcoming','Past','Declined'];
   String? selectedRequest = 'Upcoming';
+
+  File? imageFile;
 
   TextEditingController fnameController = TextEditingController();
   TextEditingController lnameController = TextEditingController();
@@ -42,6 +45,13 @@ class VisitorController extends BaseModel {
   void openBottomSheet(BuildContext context) {
     setInitalDataFields();
     ProfileBottomSheet.presentBottomSheet(context, this);
+  }
+
+  void openImageSelection(BuildContext context){
+    openImagePicker(context, onSelection: (imageFile){
+      this.imageFile = imageFile;
+      notifyListeners();
+    });
   }
 
 }

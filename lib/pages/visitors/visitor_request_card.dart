@@ -1,9 +1,12 @@
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:society_hub/pages/visitors/label_value.dart';
 import 'package:society_hub/pages/visitors/visitor_controller.dart';
 import 'package:society_hub/resources/assets.dart';
 import 'package:society_hub/resources/ccolors.dart';
+import 'package:society_hub/resources/constant.dart';
 import 'package:society_hub/resources/sizes.dart';
 import 'package:society_hub/widgets/text_button.dart';
 
@@ -29,7 +32,10 @@ class VisitorRequestCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(Assets.visitorProfile,height: DeviceHeight.s150,width: DeviceWidth.s130,fit: BoxFit.cover),
+            // Image.network('http://pioneer-growth.com:8001/media/images/image_picker_C320E1AE-747A-4A85-9634-D8723108FA60-36573-000011B3502A62BF.jpg',height: DeviceHeight.s150,width: DeviceWidth.s130,fit: BoxFit.cover,errorBuilder: (context, error, stackTrace) => Image.asset(Assets.visitorProfile,height: DeviceHeight.s150,width: DeviceWidth.s130,fit: BoxFit.cover)),
+            viewModel?.imageFile == null ?
+            Image.asset(Assets.visitorProfile,height: DeviceHeight.s150,width: DeviceWidth.s130,fit: BoxFit.cover) : 
+            Image.file(viewModel!.imageFile!,height: DeviceHeight.s150,width: DeviceWidth.s130,fit: BoxFit.cover),
             SizedBox(width: DeviceWidth.s5),
             Expanded(
               child: Column(
@@ -67,6 +73,7 @@ class VisitorRequestCard extends StatelessWidget {
                     )),
                     SizedBox(width: DeviceWidth.s8),
                     Expanded(child: AppPrimaryButton(
+                      onPressed: () => viewModel?.openImageSelection(context),
                       text: 'Decline',
                       textColor: CColors.black,
                       height: DeviceHeight.s30,
