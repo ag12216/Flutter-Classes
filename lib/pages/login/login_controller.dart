@@ -8,6 +8,7 @@ import 'package:society_hub/resources/constant.dart';
 import 'package:society_hub/resources/validators.dart';
 import 'package:society_hub/pages/services/models/login_response.dart';
 import 'package:society_hub/response/login_response.dart';
+import 'package:society_hub/response/response_login.dart';
 import 'package:society_hub/services/services.dart';
 import 'package:society_hub/services_v2/api_client.dart';
 import 'package:society_hub/services_v2/urls.dart';
@@ -58,6 +59,11 @@ class LoginController with ChangeNotifier{
       'password': passwordController.text.trim()
     };
     ResultResponse resultResponse = await services.postMethod(Urls.login, body);
+
+    var obj = ResponseLogin.jsonToModel(resultResponse.data);
+    
+    obj.modelToJson();
+
     if(resultResponse.status == 0){
       // loginResponse2Response = LoginResponse2Response.fromJson(json)
       LoginResponse2Response.fromJson(resultResponse.data);
