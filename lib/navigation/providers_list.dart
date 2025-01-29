@@ -8,8 +8,11 @@ import 'package:society_hub/pages/login/register_controller.dart';
 import 'package:society_hub/pages/others/fields_controller.dart';
 import 'package:society_hub/pages/others/learn_controller.dart';
 import 'package:society_hub/pages/others/other_controller.dart';
+import 'package:society_hub/pages/splash/splash_controller.dart';
 import 'package:society_hub/pages/tabbar/tabbar_controller.dart';
+import 'package:society_hub/pages/tabbars/tababrs_controller.dart';
 import 'package:society_hub/pages/visitors/visitor_controller.dart';
+import 'package:society_hub/pages/walkthrough/walkthrough_controller.dart';
 import 'package:society_hub/resources/protocols.dart';
 
 
@@ -27,6 +30,10 @@ class Providers {
     ChangeNotifierProvider(create: (_) => FieldsController()),
     ChangeNotifierProvider(create: (_) => TabbarController()),
     ChangeNotifierProvider(create: (_) => VisitorController()),
+    ChangeNotifierProvider(create: (_) => TababrsController()),
+    ChangeNotifierProvider(create: (_) => WalkthroughController()),
+    ChangeNotifierProvider(create: (_) => SplashController()),
+    
     
     
     

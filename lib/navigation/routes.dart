@@ -9,9 +9,12 @@ import 'package:society_hub/pages/others/fields.dart';
 import 'package:society_hub/pages/others/learn_view.dart';
 import 'package:society_hub/pages/others/others.dart';
 import 'package:society_hub/pages/page_not_found/page_not_found.dart';
+import 'package:society_hub/pages/splash/splash_view.dart';
 import 'package:society_hub/pages/tabbar/tabbar_view.dart';
+import 'package:society_hub/pages/tabbars/tabbar_view.dart';
 import 'package:society_hub/pages/visitors/visitor_controller.dart';
 import 'package:society_hub/pages/visitors/visitorpage.dart';
+import 'package:society_hub/pages/walkthrough/walkthrough.dart';
 import 'package:society_hub/resources/constant.dart';
 
 
@@ -26,9 +29,16 @@ class Routes {
     static const wing = '/wing';
     static const fields = '/fields';
     static const visitor = '/visitor';
+    static const tabbarView = '/tabbarView';
+    static const walkThrough = '/walkThrough';
+    static const splash = '/splash';
+    
 
     static Route<dynamic> onGenerateRoute(RouteSettings settings){
         switch(settings.name){
+          case splash:
+            return MaterialPageRoute(builder: (_) => const SplashView());
+
           case login:
             return MaterialPageRoute(builder: (_) => const LoginView());
           
@@ -47,6 +57,9 @@ class Routes {
             VisitorController ctrl = Provider.of<VisitorController>((settings.arguments as Map)['context'], listen: false);
             ctrl.init(visitorJson);
             return MaterialPageRoute(builder: (_) => const VisitorPage());
+          
+          case tabbarView:
+            return MaterialPageRoute(builder: (_) => const TabbarsView());
 
           case wing:
             return MaterialPageRoute(builder: (_) => const WingPage());
@@ -56,6 +69,9 @@ class Routes {
           
           case fields:
             return MaterialPageRoute(builder: (_) => const FieldsView());
+
+        case walkThrough:
+          return MaterialPageRoute(builder: (_) => const WalkThroughView());
 
         case learn:
           return MaterialPageRoute(builder: (_) => const LearnView());

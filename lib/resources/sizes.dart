@@ -73,7 +73,7 @@ class DeviceHeight {
 }
 
 class DeviceWidth {
-
+  static double s2 = 2.w;
   static double s3 = 3.w;
   static double s4 = 4.w;
   static double s5 = 5.w;
@@ -124,4 +124,5 @@ class DeviceRadius {
   static double s50 = 50.r;
   static double s60 = 60.r;
   static double s100 = 100.r;
+  static double s150 = 150.r;
 }

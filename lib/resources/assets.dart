@@ -17,4 +17,11 @@ class Assets {
 
     // Visitors
     static const visitorProfile = 'assets/visitors/visitor.png';
+    
+    static const screen3 = 'assets/walkthrough/screen3.png';
+    static const screen2 = 'assets/walkthrough/screen2.png';
+    static const screen1 = 'assets/walkthrough/screen1.png';
+    static const splash = 'assets/login/splash.png';
+    // static const background = 'assets/walkthrough/background.png';
+    
 }

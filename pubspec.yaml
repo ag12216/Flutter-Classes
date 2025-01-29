@@ -42,6 +42,8 @@ dependencies:
   flutter_otp_text_field: ^1.4.0+2
   otp_text_field: ^1.1.3
   image_picker: ^1.1.2
+  carousel_slider: ^5.0.0
+  shared_preferences: ^2.4.0
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +78,7 @@ flutter:
     - assets/json/login/mr/
     - assets/json/dashboard/
     - assets/json/visitor/en/
+    - assets/walkthrough/
     
   #   - images/a_dot_ham.jpeg
 
